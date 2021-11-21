@@ -1,0 +1,951 @@
+<!--
+
+=========================================================
+* Volt Free - Bootstrap 5 Dashboard
+=========================================================
+
+* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+* License (https://themesberg.com/licensing)
+
+* Designed and coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Primary Meta Tags -->
+<title>Bossa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="title" content="@@title">
+<meta name="author" content="Themesberg">
+<meta name="description" content="Volt Pro is a Premium Bootstrap 5 Admin Dashboard featuring over 800 components, 10+ plugins and 20 example pages using Vanilla JS.">
+<meta name="keywords" content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, themesberg, themesberg dashboard, themesberg admin dashboard" />
+<link rel="canonical" href="https://themesberg.com/product/admin-dashboard/volt-premium-bootstrap-5-dashboard">
+
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+<link rel="manifest" href="assets/img/favicon/site.webmanifest">
+<link rel="mask-icon" href="assets/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Sweet Alert -->
+<link type="text/css" href="vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- Notyf -->
+<link type="text/css" href="vendor/notyf/notyf.min.css" rel="stylesheet">
+
+<!-- Volt CSS -->
+<link type="text/css" href="css/volt.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+	<nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
+		<div class="sidebar-inner px-4 pt-3">
+	  
+			<ul class="nav flex-column pt-3 pt-md-0">
+
+				<li class="nav-item @@if (context.page === 'overview') { active }">
+					<a href="index.html" class="nav-link">
+						<span class="sidebar-icon">
+				<svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+			  </span>
+						<span class="sidebar-text">Bossa Dashboard</span>
+					</a>
+				</li>
+
+
+			</ul>
+		</div>
+	</nav>
+	
+
+    <main class="content">
+
+        <nav class="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
+    <div class="container-fluid px-0">
+        <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
+            <div class="d-flex align-items-center">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="button" class="btn btn-lg btn-primary" value="Connect Web 3" id="connect_web_3" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span id="show_wallet"></span></td>
+                    </tr>
+                </table>
+
+
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+
+        <div class="row">
+            <div class="col-12 col-xl-4">
+                <div class="card border-0 shadow components-section">
+                    <div class="card-body">
+                        <h2>Create Invoice Pouch</h2>
+                        <div class="table-responsive">
+                            <table class="table table-centered table-nowrap mb-0 rounded">
+                                <tr>
+                                    <td><label for="holder">Holder</label></td>
+                                    <td><input type="text " class="form-control " id="holder" aria-describedby="emailHelp "></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="initial_balance">Initial Balance</label></td>
+                                    <td><input type="text" class="form-control " id="initial_balance " aria-describedby="emailHelp "></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="target_balance">Target Balance</label></td>
+                                    <td>
+                                        <input type="text " class="form-control " id="target_balance " aria-describedby="emailHelp "></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="maturity_date ">Maturity Date</label></td>
+                                    <td>
+                                        <input data-datepicker=" " class="form-control " id="maturity_date " type="text " placeholder="dd/mm/yyyy " required></td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="pay_currency ">Pay Currency</label>
+                                    </td>
+                                    <td>
+                                        <select class="form-select" id="pay_currency" aria-label="Default select example">
+                                            <option selected>Select pay currency</option>
+                                            <option value="3 ">AAVE</option>
+                                            <option value="3 ">ETH</option>
+                                            <option value="1 ">USDC</option>
+                                            <option value="2 ">USDT</option>
+                                            <option value="3 ">WBTC</option>
+                                            <option value="3 ">TUSD</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-primary" id="pay_currency_approve">Approve Currency</button>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td><label for="invoice">Select Invoice to Pay</label></td>
+                                    <td><input type="file" class="btn btn-sm btn-primary" name="invoice" id="invoice"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><button class="btn btn-lg btn-secondary" type="button" id="create_pouch">Create Pouch</button></td>
+                                </tr>
+                            </table>
+                            <span id="output"></span>
+                        </div>
+                        <!-- End create pouch -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class=" col-12 col-xl-8 ">
+                <div class="card border-0 shadow components-section ">
+                    <div class="card-body ">
+                        <div class="col-lg-12 ">
+                            <h2>Owned Invoice Pouches</h2>
+                            <div class="table-responsive ">
+                                <table class="table table-centered table-nowrap mb-0 rounded ">
+                                    <thead class="thead-light ">
+                                        <tr>
+                                            <th>Recipient</th>
+                                            <th>State</th>
+                                            <th>Sent</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266</td>
+                                            <td>CREDITED</td>
+                                            <td>FALSE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td><button class="btn btn-sm btn-secondary " id=" ">SEND</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0xFABB0ac9d68B0B445fB7357272Ff202C5651694a</td>
+                                            <td>LIQUIDATED</td>
+                                            <td>TRUE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec</td>
+                                            <td>CREDITED</td>
+                                            <td>FALSE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td><button class="btn btn-sm btn-secondary " id=" ">SEND</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097</td>
+                                            <td>CREDITED</td>
+                                            <td>TRUE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+
+
+        <div class="row ">
+            <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0 ">
+                <div class="card border-0 shadow components-section ">
+                    <div class="card-body ">
+                        <div class="col-lg-12 ">
+                            <h2>Recieved Invoice Pouches</h2>
+                            <div class="table-responsive ">
+                                <table class="table table-centered table-nowrap mb-0 rounded ">
+                                    <thead class="thead-light ">
+                                        <tr>
+                                            <th>Sender</th>
+                                            <th>State</th>
+                                            <th>Value</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0x70997970C51812dc3A010C7d01b50e0d17dc79C8</td>
+                                            <td>CREDITED</td>
+                                            <td>5 USDC</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0x14dC79964da2C08b23698B3D3cc7Ca32193d9955</td>
+                                            <td>CREDITED</td>
+                                            <td>1 AAVE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f</td>
+                                            <td>LIQUIDATED</td>
+                                            <td>10 DAI</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td><button class="btn btn-sm btn-secondary " id=" ">WITHDRAW</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="theme-settings card bg-gray-800 pt-2 collapse" id="theme-settings">
+    <div class="card-body bg-gray-800 text-white pt-4">
+        <button type="button" class="btn-close theme-settings-close" aria-label="Close" data-bs-toggle="collapse" href="#theme-settings" role="button" aria-expanded="false" aria-controls="theme-settings"></button>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <p class="m-0 mb-1 me-4 fs-7">Open source <span role="img" aria-label="gratitude">💛</span></p>
+            <a class="github-button" href="https://github.com/themesberg/volt-bootstrap-5-dashboard" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star themesberg/volt-bootstrap-5-dashboard on GitHub">Star</a>
+        </div>
+        <a href="https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard" target="_blank" class="btn btn-secondary d-inline-flex align-items-center justify-content-center mb-3 w-100">
+            Download
+            <svg class="icon icon-xs ms-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2 9.5A3.5 3.5 0 005.5 13H9v2.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 15.586V13h2.5a4.5 4.5 0 10-.616-8.958 4.002 4.002 0 10-7.753 1.977A3.5 3.5 0 002 9.5zm9 3.5H9V8a1 1 0 012 0v5z" clip-rule="evenodd"></path></svg>
+        </a>
+        <p class="fs-7 text-gray-300 text-center">Available in the following technologies:</p>
+        <div class="d-flex justify-content-center">
+            <a class="me-3" href="https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard" target="_blank">
+                <img src="@@path/assets/img/technologies/bootstrap-5-logo.svg" class="image image-xs">
+            </a>
+            <a href="https://demo.themesberg.com/volt-react-dashboard/#/" target="_blank">
+                <img src="@@path/assets/img/technologies/react-logo.svg" class="image image-xs">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
+    <div class="card-body bg-gray-800 text-white rounded-top p-3 py-2">
+        <span class="fw-bold d-inline-flex align-items-center h6">
+            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
+            Settings
+        </span>
+    </div>
+</div>
+
+<footer class="bg-white rounded shadow p-5 mb-4 mt-4">
+    <div class="row">
+        <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
+            <p class="mb-0 text-center text-lg-start">© 2021 <span class="current-year"></span> <a class="text-primary fw-normal" href="https://www.blockstarlogic.com/obei" target="_blank">Bossa</a></p>
+        </div>
+        <div class="col-12 col-md-8 col-xl-6 text-center text-lg-start">
+            <!-- List -->
+
+        </div>
+</footer>
+    </main>
+
+    <script>
+        const onboardButton = document.getElementById("connect_web_3 ");
+        const showAccpimt = document.getElementById("show_wallet ");
+
+        const invoice = document.getElementById("invoice ");
+        const holder = document.getElementById("holder ");
+        const initialBalance = document.getElementById("initial_balance ");
+        const targetBalance = document.getElementById("target_balance ");
+        const maxDate = document.getElementById("maturity_date ");
+        const payCurrency = document.getElementById("pay_currency ");
+        const payCurrencyApproveButton = document.getElementById("pay_currency_approve ");
+        const createPouchButton = document.getElementById("create_pouch ");
+
+        const iBossaAddress = " ";
+
+
+        const iPouchABI = [{
+            "inputs ": [{
+                "internalType ": "uint256 ",
+                "name ": "_amount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_targetValue ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_maxTime ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "address ",
+                "name ": "_erc20 ",
+                "type ": "address "
+            }, {
+                "internalType ": "string ",
+                "name ": "_invoiceCID ",
+                "type ": "string "
+            }],
+            "name ": "credit ",
+            "outputs ": [{
+                "internalType ": "address ",
+                "name ": "_pouchAddress ",
+                "type ": "address "
+            }],
+            "stateMutability ": "payable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "getHolder ",
+            "outputs ": [{
+                "internalType ": "address ",
+                "name ": "_holder ",
+                "type ": "address "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "getState ",
+            "outputs ": [{
+                "internalType ": "string ",
+                "name ": "_state ",
+                "type ": "string "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "isLiquidationReady ",
+            "outputs ": [{
+                "internalType ": "bool ",
+                "name ": "isLiquidatable ",
+                "type ": "bool "
+            }],
+            "stateMutability ": "view ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "liquidate ",
+            "outputs ": [{
+                "internalType ": "bool ",
+                "name ": "_isLiquidated ",
+                "type ": "bool "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "payout ",
+            "outputs ": [{
+                "internalType ": "uint256 ",
+                "name ": "_payoutAmount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_targetAmount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "string ",
+                "name ": "_invoiceCID ",
+                "type ": "string "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "viewContents ",
+            "outputs ": [{
+                "internalType ": "uint256 ",
+                "name ": "_creditAmount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_targetAmount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_currentBalance ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_creditTime ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_maxTime ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "address ",
+                "name ": "_erc20 ",
+                "type ": "address "
+            }, {
+                "internalType ": "address ",
+                "name ": "_creator ",
+                "type ": "address "
+            }, {
+                "internalType ": "address ",
+                "name ": "_holder ",
+                "type ": "address "
+            }, {
+                "internalType ": "string ",
+                "name ": "_invoiceCID ",
+                "type ": "string "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }];
+
+
+        const iBossaABI = [{
+            "inputs ": [],
+            "name ": "checkPouches ",
+            "outputs ": [{
+                "internalType ": "uint256 ",
+                "name ": "_vestingCount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_liquidatedCount ",
+                "type ": "uint256 "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [{
+                "internalType ": "address payable ",
+                "name ": "_holder ",
+                "type ": "address "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_initialBalance ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_targetBalance ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_maxTime ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "address ",
+                "name ": "_erc20 ",
+                "type ": "address "
+            }, {
+                "internalType ": "string ",
+                "name ": "_invoiceCID ",
+                "type ": "string "
+            }],
+            "name ": "createPouch ",
+            "outputs ": [{
+                "internalType ": "address ",
+                "name ": "_pouchAddress ",
+                "type ": "address "
+            }],
+            "stateMutability ": "payable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "getPouchList ",
+            "outputs ": [{
+                "internalType ": "address[] ",
+                "name ": "_pouchList ",
+                "type ": "address[] "
+            }, {
+                "internalType ": "string[] ",
+                "name ": "_status ",
+                "type ": "string[] "
+            }, {
+                "internalType ": "address[] ",
+                "name ": "_holders ",
+                "type ": "address[] "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [{
+                "internalType ": "address ",
+                "name ": "_pouchAddress ",
+                "type ": "address "
+            }],
+            "name ": "sendPouch ",
+            "outputs ": [{
+                "internalType ": "bool ",
+                "name ": "_sent ",
+                "type ": "bool "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }];
+
+        const ierc20ABI = [{
+            "anonymous": false,
+            "inputs": [{
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }, {
+                "indexed": true,
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            }, {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+            }],
+            "name": "Approval",
+            "type": "event"
+        }, {
+            "anonymous": false,
+            "inputs": [{
+                "indexed": true,
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+            }, {
+                "indexed": true,
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            }, {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+            }],
+            "name": "Transfer",
+            "type": "event"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }, {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            }],
+            "name": "allowance",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            }, {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+            "name": "approve",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }],
+            "name": "balanceOf",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "inputs": [],
+            "name": "totalSupply",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
+            }, {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+            "name": "transfer",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+            }, {
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
+            }, {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+            "name": "transferFrom",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }];
+
+
+        const iBossaContract = new web3.eth.Contract(iBossaABI, iBossaAddress);
+
+        const ipfs = window.IpfsApi('localhost', 5001) // Connect to IPFS
+        const Buffer = window.IpfsApi().Buffer;
+
+        console.log("got ipfs: " + ipfs);
+
+        const web3 = new Web3(ethereum);
+        console.log("web3 : " + web3);
+
+        var account;
+
+        //Created check function to see if the MetaMask extension is installed
+        const isMetaMaskInstalled = () => {
+
+            const {
+                ethereum
+            } = window;
+            return Boolean(ethereum && ethereum.isMetaMask);
+        };
+
+        const MetaMaskClientCheck = () => {
+            //Now we check to see if Metmask is installed
+            if (!isMetaMaskInstalled()) {
+                console.log("metamask not installed");
+                //If it isn't installed we ask the user to click to install it
+                onboardButton.innerText = 'Click here to install MetaMask!';
+                //When the button is clicked we call this function
+                onboardButton.onclick = onClickInstall;
+                //The button is now disabled
+                onboardButton.disabled = false;
+            } else {
+                //If it is installed we change our button text
+                onboardButton.innerText = 'Click to Connect Metamask';
+                console.log("metamask installed");
+                onboardButton.addEventListener('click', () => {
+                    getAccount();
+                    onboardButton.innerText = "Web 3 Connected";
+                    console.log(" loading pouches ");
+                    getPouchLists();
+                });
+            }
+        };
+        const initialize = () => {
+            MetaMaskClientCheck();
+
+        };
+
+        window.addEventListener('DOMContentLoaded', initialize);
+
+        async function getAccount() {
+            const accounts = await ethereum.request({
+                method: 'eth_requestAccounts'
+            });
+            account = accounts[0];
+            showAccount.innerHTML = "<b>Connected Wallet :: " + account + "</b>";
+        }
+
+        //We create a new MetaMask onboarding object to use in our app
+        //const onboarding = new MetaMaskOnboarding({ forwarderOrigin });
+
+        //This will start the onboarding proccess
+        const onClickInstall = () => {
+            onboardButton.innerText = 'Onboarding in progress';
+            onboardButton.disabled = true;
+            //On this object we have startOnboarding which will start the onboarding process for our end user
+            onboarding.startOnboarding();
+        };
+
+        const onClickConnect = async() => {
+            try {
+                // Will open the MetaMask UI
+                // You should disable this button while the request is pending!
+                await ethereum.request({
+                    method: 'eth_requestAccounts'
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        var invoiceCid;
+
+        // action ipfs
+        function upload() {
+            const reader = new FileReader();
+            reader.readAsArrayBuffer(invoice.files[0]); // Read Provided File
+            reader.onloadend = function() {
+
+
+                console.log("got result : " + reader.result);
+
+                const buf = Buffer.from(reader.result); // Convert data into buffer
+
+                console.log("got buffer : " + buf);
+
+                ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
+                    if (err) {
+                        console.error(err)
+                        return
+                    }
+                    let url = `https://ipfs.io/ipfs/${result[0].hash}`
+                    console.log(`Url --> ${url}`)
+                    invoiceCid = url
+                    document.getElementById("url").innerHTML = url
+                    document.getElementById("url").href = url
+                    document.getElementById("output").src = url
+
+                });
+                console.log("upload complete");
+            }
+        }
+
+        async function getPouchLists() {
+            var ownedPouchTable = document.createElement("table");
+            var recievedPouchTable = document.createElement("table");
+
+            iBossaContract.methods.getPouchList().call({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("got result " + result);
+
+                    var z = 0;
+                    while (z < result.length) {
+
+                        var data = result[z];
+                        if (account == data[2]) { // recieved
+                            var row = table.insertRow();
+                            var a = 0;
+                            for (a; y < data.length; a++) {
+                                var td = row.insertCell();
+                                var text = document.createTextNode(data[x]);
+                                td.appendChild(text);
+                            }
+                            var td = row.insertCell();
+                            var td = row.insertCell();
+
+                        } else { // owned
+                            var row = table.insertRow();
+                            var y = 0;
+                            for (y; y < data.length; y++) {
+                                var td = row.insertCell();
+                                var text = document.createTextNode(data[x]);
+                                td.appendChild(text);
+                            }
+                            var td = row.insertCell();
+                            var td = row.insertCell();
+
+                        }
+
+                    }
+                });
+        }
+
+        async function viewPouch(pouchAddress) {
+            var pouchContract = new web3.eth.Contract(iPouchABI, pouchAddress);
+            pouchContract.methods.viewContents().call({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("got pouch contents: " + result);
+                    var ownedPouchTable = document.createElement("table");
+                    var data = result[0];
+                    var row = table.insertRow();
+                    var td_label = row.insertCell();
+                    var ib_label = document.createTextNode("Initial Balance");
+                    var tb_label = document.createTextNode("Target Balance");
+                    var cb_label = document.createTextNode("Current Balance");
+                    var ct_label = document.createTextNode("Credited @ Time");
+                    var md_label = document.createTextNode("Maturity Date");
+                    var curr_label = document.createTextNode("Currency");
+                    var creator_label = document.createTextNode("Creator");
+                    var holder_label = document.createTextNode("Holder");
+                    var invoice_label = document.createTextNode("Invoice");
+
+                });
+        }
+
+        async function sendPouch(pouchAddress) {
+
+            iBossaContract.methods.createPouch(pouchAddress).send({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("pouch sent");
+                    getPouchLists();
+                });
+        }
+
+        async function createPouch() {
+
+
+            // upload to ipfs and get CID
+            upload();
+
+            // create pouch on chain
+            iBossaContract.methods.createPouch(holder.nodeValue, initialBalance.nodeValue, targetBalance.nodeValue, maxDate.nodeValue, payCurrency.nodeValue, invoiceCID).send({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("refreshing pouch " + result);
+                    getPouchLists();
+                });
+
+            payCurrencyApproveButton.disabled = false;
+        }
+
+        async function approveErc20() {
+            iErc20Contract = new web3.eth.Contract(ierc20ABI, payCurrency.nodeValue);
+            iErcContract.methods.approve(iBossaAddress, 99999999999999999999999999999999).send({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("approval acquired ");
+                    payCurrencyApproveButton.disabled = true;
+                });
+        }
+    </script>
+   <script src="@@path/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- Vendor JS -->
+<script src="@@path/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+
+<!-- Slider -->
+<script src="@@path/vendor/nouislider/distribute/nouislider.min.js"></script>
+
+<!-- Smooth scroll -->
+<script src="@@path/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+
+<!-- Charts -->
+<script src="@@path/vendor/chartist/dist/chartist.min.js"></script>
+<script src="@@path/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+
+<!-- Datepicker -->
+<script src="@@path/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+
+<!-- Sweet Alerts 2 -->
+<script src="@@path/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+<!-- Moment JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+<!-- Vanilla JS Datepicker -->
+<script src="@@path/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+
+<!-- Notyf -->
+<script src="@@path/vendor/notyf/notyf.min.js"></script>
+
+<!-- Simplebar -->
+<script src="@@path/vendor/simplebar/dist/simplebar.min.js"></script>
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- Volt JS -->
+<script src="@@path/assets/js/volt.js"></script>
+
+
+</body>
+
+</html>
+
+</html>

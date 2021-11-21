@@ -1,0 +1,806 @@
+<!--
+
+=========================================================
+* Volt Free - Bootstrap 5 Dashboard
+=========================================================
+
+* Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
+* Copyright 2021 Themesberg (https://www.themesberg.com)
+* License (https://themesberg.com/licensing)
+
+* Designed and coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./_head.html', { "path": "../..", "title": "Bossa - " })
+</head>
+
+<body>
+
+    <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    @@if (environment === 'production') { @@include('./_analytics_body.html') } @@include('./dashboard/_nav.html', { "path": "../.." }) @@include('./dashboard/_sidenav.html', { "path": "../..", "page": "overview", "page_group": "dashboard" })
+
+    <main class="content">
+
+        @@include('./dashboard/_topbar.html', { "path": "../.." })
+
+
+        <div class="row">
+            <div class="col-12 col-xl-4">
+                <div class="card border-0 shadow components-section">
+                    <div class="card-body">
+                        <h2>Create Invoice Pouch</h2>
+                        <div class="table-responsive">
+                            <table class="table table-centered table-nowrap mb-0 rounded">
+                                <tr>
+                                    <td><label for="holder">Holder</label></td>
+                                    <td><input type="text " class="form-control " id="holder" aria-describedby="emailHelp "></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="initial_balance">Initial Balance</label></td>
+                                    <td><input type="text" class="form-control " id="initial_balance " aria-describedby="emailHelp "></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="target_balance">Target Balance</label></td>
+                                    <td>
+                                        <input type="text " class="form-control " id="target_balance " aria-describedby="emailHelp "></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="maturity_date ">Maturity Date</label></td>
+                                    <td>
+                                        <input data-datepicker=" " class="form-control " id="maturity_date " type="text " placeholder="dd/mm/yyyy " required></td>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="pay_currency ">Pay Currency</label>
+                                    </td>
+                                    <td>
+                                        <select class="form-select" id="pay_currency" aria-label="Default select example">
+                                            <option selected>Select pay currency</option>
+                                            <option value="3 ">AAVE</option>
+                                            <option value="3 ">ETH</option>
+                                            <option value="1 ">USDC</option>
+                                            <option value="2 ">USDT</option>
+                                            <option value="3 ">WBTC</option>
+                                            <option value="3 ">TUSD</option>
+                                        </select>
+                                        <button class="btn btn-sm btn-primary" id="pay_currency_approve">Approve Currency</button>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td><label for="invoice">Select Invoice to Pay</label></td>
+                                    <td><input type="file" class="btn btn-sm btn-primary" name="invoice" id="invoice"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><button class="btn btn-lg btn-secondary" type="button" id="create_pouch">Create Pouch</button></td>
+                                </tr>
+                            </table>
+                            <span id="output"></span>
+                        </div>
+                        <!-- End create pouch -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class=" col-12 col-xl-8 ">
+                <div class="card border-0 shadow components-section ">
+                    <div class="card-body ">
+                        <div class="col-lg-12 ">
+                            <h2>Owned Invoice Pouches</h2>
+                            <div class="table-responsive ">
+                                <table class="table table-centered table-nowrap mb-0 rounded ">
+                                    <thead class="thead-light ">
+                                        <tr>
+                                            <th>Recipient</th>
+                                            <th>State</th>
+                                            <th>Sent</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266</td>
+                                            <td>CREDITED</td>
+                                            <td>FALSE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td><button class="btn btn-sm btn-secondary " id=" ">SEND</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0xFABB0ac9d68B0B445fB7357272Ff202C5651694a</td>
+                                            <td>LIQUIDATED</td>
+                                            <td>TRUE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec</td>
+                                            <td>CREDITED</td>
+                                            <td>FALSE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td><button class="btn btn-sm btn-secondary " id=" ">SEND</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097</td>
+                                            <td>CREDITED</td>
+                                            <td>TRUE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br/>
+
+
+        <div class="row ">
+            <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0 ">
+                <div class="card border-0 shadow components-section ">
+                    <div class="card-body ">
+                        <div class="col-lg-12 ">
+                            <h2>Recieved Invoice Pouches</h2>
+                            <div class="table-responsive ">
+                                <table class="table table-centered table-nowrap mb-0 rounded ">
+                                    <thead class="thead-light ">
+                                        <tr>
+                                            <th>Sender</th>
+                                            <th>State</th>
+                                            <th>Value</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0x70997970C51812dc3A010C7d01b50e0d17dc79C8</td>
+                                            <td>CREDITED</td>
+                                            <td>5 USDC</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0x14dC79964da2C08b23698B3D3cc7Ca32193d9955</td>
+                                            <td>CREDITED</td>
+                                            <td>1 AAVE</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f</td>
+                                            <td>LIQUIDATED</td>
+                                            <td>10 DAI</td>
+                                            <td><a href=" ">VIEW</a></td>
+                                            <td><button class="btn btn-sm btn-secondary " id=" ">WITHDRAW</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @@include('./dashboard/_footer.html', { "path ": "../.. ", "classes ": "text-dark " })
+    </main>
+
+    <script>
+        const onboardButton = document.getElementById("connect_web_3 ");
+        const showAccpimt = document.getElementById("show_wallet ");
+
+        const invoice = document.getElementById("invoice ");
+        const holder = document.getElementById("holder ");
+        const initialBalance = document.getElementById("initial_balance ");
+        const targetBalance = document.getElementById("target_balance ");
+        const maxDate = document.getElementById("maturity_date ");
+        const payCurrency = document.getElementById("pay_currency ");
+        const payCurrencyApproveButton = document.getElementById("pay_currency_approve ");
+        const createPouchButton = document.getElementById("create_pouch ");
+
+        const iBossaAddress = " ";
+
+
+        const iPouchABI = [{
+            "inputs ": [{
+                "internalType ": "uint256 ",
+                "name ": "_amount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_targetValue ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_maxTime ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "address ",
+                "name ": "_erc20 ",
+                "type ": "address "
+            }, {
+                "internalType ": "string ",
+                "name ": "_invoiceCID ",
+                "type ": "string "
+            }],
+            "name ": "credit ",
+            "outputs ": [{
+                "internalType ": "address ",
+                "name ": "_pouchAddress ",
+                "type ": "address "
+            }],
+            "stateMutability ": "payable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "getHolder ",
+            "outputs ": [{
+                "internalType ": "address ",
+                "name ": "_holder ",
+                "type ": "address "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "getState ",
+            "outputs ": [{
+                "internalType ": "string ",
+                "name ": "_state ",
+                "type ": "string "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "isLiquidationReady ",
+            "outputs ": [{
+                "internalType ": "bool ",
+                "name ": "isLiquidatable ",
+                "type ": "bool "
+            }],
+            "stateMutability ": "view ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "liquidate ",
+            "outputs ": [{
+                "internalType ": "bool ",
+                "name ": "_isLiquidated ",
+                "type ": "bool "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "payout ",
+            "outputs ": [{
+                "internalType ": "uint256 ",
+                "name ": "_payoutAmount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_targetAmount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "string ",
+                "name ": "_invoiceCID ",
+                "type ": "string "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "viewContents ",
+            "outputs ": [{
+                "internalType ": "uint256 ",
+                "name ": "_creditAmount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_targetAmount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_currentBalance ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_creditTime ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_maxTime ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "address ",
+                "name ": "_erc20 ",
+                "type ": "address "
+            }, {
+                "internalType ": "address ",
+                "name ": "_creator ",
+                "type ": "address "
+            }, {
+                "internalType ": "address ",
+                "name ": "_holder ",
+                "type ": "address "
+            }, {
+                "internalType ": "string ",
+                "name ": "_invoiceCID ",
+                "type ": "string "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }];
+
+
+        const iBossaABI = [{
+            "inputs ": [],
+            "name ": "checkPouches ",
+            "outputs ": [{
+                "internalType ": "uint256 ",
+                "name ": "_vestingCount ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_liquidatedCount ",
+                "type ": "uint256 "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [{
+                "internalType ": "address payable ",
+                "name ": "_holder ",
+                "type ": "address "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_initialBalance ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_targetBalance ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "uint256 ",
+                "name ": "_maxTime ",
+                "type ": "uint256 "
+            }, {
+                "internalType ": "address ",
+                "name ": "_erc20 ",
+                "type ": "address "
+            }, {
+                "internalType ": "string ",
+                "name ": "_invoiceCID ",
+                "type ": "string "
+            }],
+            "name ": "createPouch ",
+            "outputs ": [{
+                "internalType ": "address ",
+                "name ": "_pouchAddress ",
+                "type ": "address "
+            }],
+            "stateMutability ": "payable ",
+            "type ": "function "
+        }, {
+            "inputs ": [],
+            "name ": "getPouchList ",
+            "outputs ": [{
+                "internalType ": "address[] ",
+                "name ": "_pouchList ",
+                "type ": "address[] "
+            }, {
+                "internalType ": "string[] ",
+                "name ": "_status ",
+                "type ": "string[] "
+            }, {
+                "internalType ": "address[] ",
+                "name ": "_holders ",
+                "type ": "address[] "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }, {
+            "inputs ": [{
+                "internalType ": "address ",
+                "name ": "_pouchAddress ",
+                "type ": "address "
+            }],
+            "name ": "sendPouch ",
+            "outputs ": [{
+                "internalType ": "bool ",
+                "name ": "_sent ",
+                "type ": "bool "
+            }],
+            "stateMutability ": "nonpayable ",
+            "type ": "function "
+        }];
+
+        const ierc20ABI = [{
+            "anonymous": false,
+            "inputs": [{
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }, {
+                "indexed": true,
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            }, {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+            }],
+            "name": "Approval",
+            "type": "event"
+        }, {
+            "anonymous": false,
+            "inputs": [{
+                "indexed": true,
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+            }, {
+                "indexed": true,
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            }, {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+            }],
+            "name": "Transfer",
+            "type": "event"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }, {
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            }],
+            "name": "allowance",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "spender",
+                "type": "address"
+            }, {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+            "name": "approve",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            }],
+            "name": "balanceOf",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "inputs": [],
+            "name": "totalSupply",
+            "outputs": [{
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }],
+            "stateMutability": "view",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
+            }, {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+            "name": "transfer",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }, {
+            "inputs": [{
+                "internalType": "address",
+                "name": "sender",
+                "type": "address"
+            }, {
+                "internalType": "address",
+                "name": "recipient",
+                "type": "address"
+            }, {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }],
+            "name": "transferFrom",
+            "outputs": [{
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }];
+
+
+        const iBossaContract = new web3.eth.Contract(iBossaABI, iBossaAddress);
+
+        const ipfs = window.IpfsApi('localhost', 5001) // Connect to IPFS
+        const Buffer = window.IpfsApi().Buffer;
+
+        console.log("got ipfs: " + ipfs);
+
+        const web3 = new Web3(ethereum);
+        console.log("web3 : " + web3);
+
+        var account;
+
+        //Created check function to see if the MetaMask extension is installed
+        const isMetaMaskInstalled = () => {
+
+            const {
+                ethereum
+            } = window;
+            return Boolean(ethereum && ethereum.isMetaMask);
+        };
+
+        const MetaMaskClientCheck = () => {
+            //Now we check to see if Metmask is installed
+            if (!isMetaMaskInstalled()) {
+                console.log("metamask not installed");
+                //If it isn't installed we ask the user to click to install it
+                onboardButton.innerText = 'Click here to install MetaMask!';
+                //When the button is clicked we call this function
+                onboardButton.onclick = onClickInstall;
+                //The button is now disabled
+                onboardButton.disabled = false;
+            } else {
+                //If it is installed we change our button text
+                onboardButton.innerText = 'Click to Connect Metamask';
+                console.log("metamask installed");
+                onboardButton.addEventListener('click', () => {
+                    getAccount();
+                    onboardButton.innerText = "Web 3 Connected";
+                    console.log(" loading pouches ");
+                    getPouchLists();
+                });
+            }
+        };
+        const initialize = () => {
+            MetaMaskClientCheck();
+
+        };
+
+        window.addEventListener('DOMContentLoaded', initialize);
+
+        async function getAccount() {
+            const accounts = await ethereum.request({
+                method: 'eth_requestAccounts'
+            });
+            account = accounts[0];
+            showAccount.innerHTML = "<b>Connected Wallet :: " + account + "</b>";
+        }
+
+        //We create a new MetaMask onboarding object to use in our app
+        //const onboarding = new MetaMaskOnboarding({ forwarderOrigin });
+
+        //This will start the onboarding proccess
+        const onClickInstall = () => {
+            onboardButton.innerText = 'Onboarding in progress';
+            onboardButton.disabled = true;
+            //On this object we have startOnboarding which will start the onboarding process for our end user
+            onboarding.startOnboarding();
+        };
+
+        const onClickConnect = async() => {
+            try {
+                // Will open the MetaMask UI
+                // You should disable this button while the request is pending!
+                await ethereum.request({
+                    method: 'eth_requestAccounts'
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        var invoiceCid;
+
+        // action ipfs
+        function upload() {
+            const reader = new FileReader();
+            reader.readAsArrayBuffer(invoice.files[0]); // Read Provided File
+            reader.onloadend = function() {
+
+
+                console.log("got result : " + reader.result);
+
+                const buf = Buffer.from(reader.result); // Convert data into buffer
+
+                console.log("got buffer : " + buf);
+
+                ipfs.files.add(buf, (err, result) => { // Upload buffer to IPFS
+                    if (err) {
+                        console.error(err)
+                        return
+                    }
+                    let url = `https://ipfs.io/ipfs/${result[0].hash}`
+                    console.log(`Url --> ${url}`)
+                    invoiceCid = url
+                    document.getElementById("url").innerHTML = url
+                    document.getElementById("url").href = url
+                    document.getElementById("output").src = url
+
+                });
+                console.log("upload complete");
+            }
+        }
+
+        async function getPouchLists() {
+            var ownedPouchTable = document.createElement("table");
+            var recievedPouchTable = document.createElement("table");
+
+            iBossaContract.methods.getPouchList().call({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("got result " + result);
+
+                    var z = 0;
+                    while (z < result.length) {
+
+                        var data = result[z];
+                        if (account == data[2]) { // recieved
+                            var row = table.insertRow();
+                            var a = 0;
+                            for (a; y < data.length; a++) {
+                                var td = row.insertCell();
+                                var text = document.createTextNode(data[x]);
+                                td.appendChild(text);
+                            }
+                            var td = row.insertCell();
+                            var td = row.insertCell();
+
+                        } else { // owned
+                            var row = table.insertRow();
+                            var y = 0;
+                            for (y; y < data.length; y++) {
+                                var td = row.insertCell();
+                                var text = document.createTextNode(data[x]);
+                                td.appendChild(text);
+                            }
+                            var td = row.insertCell();
+                            var td = row.insertCell();
+
+                        }
+
+                    }
+                });
+        }
+
+        async function viewPouch(pouchAddress) {
+            var pouchContract = new web3.eth.Contract(iPouchABI, pouchAddress);
+            pouchContract.methods.viewContents().call({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("got pouch contents: " + result);
+                    var ownedPouchTable = document.createElement("table");
+                    var data = result[0];
+                    var row = table.insertRow();
+                    var td_label = row.insertCell();
+                    var ib_label = document.createTextNode("Initial Balance");
+                    var tb_label = document.createTextNode("Target Balance");
+                    var cb_label = document.createTextNode("Current Balance");
+                    var ct_label = document.createTextNode("Credited @ Time");
+                    var md_label = document.createTextNode("Maturity Date");
+                    var curr_label = document.createTextNode("Currency");
+                    var creator_label = document.createTextNode("Creator");
+                    var holder_label = document.createTextNode("Holder");
+                    var invoice_label = document.createTextNode("Invoice");
+
+                });
+        }
+
+        async function sendPouch(pouchAddress) {
+
+            iBossaContract.methods.createPouch(pouchAddress).send({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("pouch sent");
+                    getPouchLists();
+                });
+        }
+
+        async function createPouch() {
+
+
+            // upload to ipfs and get CID
+            upload();
+
+            // create pouch on chain
+            iBossaContract.methods.createPouch(holder.nodeValue, initialBalance.nodeValue, targetBalance.nodeValue, maxDate.nodeValue, payCurrency.nodeValue, invoiceCID).send({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("refreshing pouch " + result);
+                    getPouchLists();
+                });
+
+            payCurrencyApproveButton.disabled = false;
+        }
+
+        async function approveErc20() {
+            iErc20Contract = new web3.eth.Contract(ierc20ABI, payCurrency.nodeValue);
+            iErcContract.methods.approve(iBossaAddress, 99999999999999999999999999999999).send({
+                    from: account
+                })
+                .then(function(result) {
+                    console.log("approval acquired ");
+                    payCurrencyApproveButton.disabled = true;
+                });
+        }
+    </script>
+    @@include('./_scripts.html', { "path ": "../.. " })
+
+</body>
+
+</html>
+
+</html>
